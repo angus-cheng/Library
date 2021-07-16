@@ -1,3 +1,10 @@
 table, th, td {
 	border: 1px solid black;
 }
+
+.form-popup {
+	display: none;
+	position: fixed;
+	margin: auto;
+	width: 50%;
+}

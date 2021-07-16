@@ -4,6 +4,9 @@ let addBookButton = document.querySelector('#addBookButton');
 
 function Book(title) {
 	this.title = title;
+	this.author = undefined;
+	this.pages = undefined;
+	this.read = undefined;
 }
 
 function addToLibrary(book) {
@@ -20,9 +23,19 @@ function displayBooks() {
 }
 
 function addBook() {
-	const book = new Book(window.prompt('What book to add?'));
+	openForm();
 	addToLibrary(book);
 	displayBooks();
+	closeForm();
+}
+
+function openForm() {
+	document.querySelector('.form-popup').style.display = 'block';
+}
+
+function closeForm() {
+	document.querySelector('.form-popup').style.display = 'none';
+	document.querySelector('.form-popup').reset();
 }
 
 addBookButton.addEventListener('click', addBook);
