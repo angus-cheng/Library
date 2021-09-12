@@ -62,6 +62,15 @@ function addRemoveBtn(row) {
 		myLibrary.splice(removeBtn.dataset.index, 1);
 		table.deleteRow(removeBtn.dataset.index);
 	});
+	let removeBtnCell = newRow.insertCell();
+	let removeBtn = document.createElement('BUTTON');
+	removeBtn.textContent = 'X';
+	removeBtn.dataset.index = myLibrary.length - 1;
+	removeBtnCell.append(removeBtn);
+	removeBtn.addEventListener('click', () => {
+		myLibrary.splice(removeBtn.dataset.index, 1);
+		table.deleteRow(removeBtn.dataset.index);
+	})
 }
 
 function openForm() {
