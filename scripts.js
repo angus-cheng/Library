@@ -7,20 +7,22 @@ const authorText = document.querySelector('#author');
 const numPagesText = document.querySelector('#pages');
 const read = document.querySelector('#read');
 
-function Book(title, author, pages, read) {
-	this.title = title;
-	this.author = author;
-	this.pages = pages;
-	this.read = read;
-}
-
-Book.prototype.toggleRead = function() {
-	if (this.read == false) {
-		this.read = true;
-	} else {
-		this.read = false;
+class Book {
+	constructor(title, author, pages, read) {
+		this.title = title;
+		this.author = author;
+		this.pages = pages;
+		this.read = read;
+	}
+	toggleRead() {
+		if (this.read == false) {
+			this.read = true;
+		} else {
+			this.read = false;
+		}
 	}
 }
+
 
 function addToLibrary(book) {
 	myLibrary.push(book);
