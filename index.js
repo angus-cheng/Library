@@ -8,19 +8,38 @@ function Book(title, author, pageNum, read) {
 }
 
 function addBookToLibrary(book) {
+    myLibrary.push(book);
     const table = document.getElementById("bookTable");
 
-    const row = table.insertRow(1);
+    const row = table.insertRow(-1);
 
     const titleCell = row.insertCell(0);
     const authorCell = row.insertCell(1);
     const pageNumCell = row.insertCell(2);
     const readCell = row.insertCell(3);
+    const removeCell = row.insertCell(4);
+
+    row.dataset.myLibraryIndex = myLibrary.length - 1;
 
     titleCell.innerText = book.title; 
     authorCell.innerText = book.author;
     pageNumCell.innerText = book.pageNum;
     readCell.innerText = book.read;
+
+    const removeBtn = document.createElement("button");
+    removeBtn.id = book.title;
+    removeBtn.textContent = "X";
+    removeBtn.addEventListener("click", e => {
+        e.preventDefault();
+        deleteRow(e);
+    })
+    removeCell.appendChild(removeBtn);
+}
+
+function deleteRow(row) {
+    const td = row.target.parentNode;
+    const tr = td.parentNode;
+    tr.parentNode.removeChild(tr);
 }
 
 function showForm() {
@@ -36,7 +55,6 @@ function getData(form) {
     const entries = Object.fromEntries(formData);
     const book = new Book(entries.title, entries.author, entries.pageNum, 
             entries.read);
-    console.log(book);
     addBookToLibrary(book);
 }
 
