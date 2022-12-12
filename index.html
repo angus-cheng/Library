@@ -9,10 +9,25 @@
     <title>Library</title>
 </head>
 <body>
+    <button id="newBookBtn" type="button" onclick="showForm()">NEW BOOK</button>
+    <form id="formElement" style="display: none;">
+        <label for="title">Title</label><br>
+        <input type="text" id="title" name="title"/><br>
+        <label for="author">Author</label><br>
+        <input type="text" id="author" name="author"/><br>
+        <label for="pageNum">Number of pages</label><br>
+        <input type="text" id="pageNum" name="pageNum"/><br>
+        <label for="read">Read</label>
+        <input type="checkbox" id="read" name="read"/><br>
+        <input type="submit" id="submit"></input>
+    </form>
+    <br>
     <table id="bookTable">
         <tr>
-            <th>Book</th>
+            <th>Title</th>
             <th>Author</th>
+            <th>Number of pages</th>
+            <th>Read</th>
         </tr>
     </table>
     <script type="text/javascript" src="index.js"></script>
